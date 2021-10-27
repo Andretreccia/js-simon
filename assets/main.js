@@ -16,14 +16,14 @@ alert(numbersArray)
 //dopo 30 secondi
 setTimeout(function () {
     insertNumber(userNumbersArray);
-    console.log(userNumbersArray)
 
+    console.log(userNumbersArray);
 
-    //condizioni per confrontare i numeri inseriti
+    compareArrayPush(numbersArray, userNumbersArray, guessUserNumbers);
 
-    compareArrayPush(numbersArray, userNumbersArray, guessUserNumbers)
-
-}, 3000);
+    alert("hai idovinato " + guessUserNumbers.length + " numeri! " +
+        " i numeri sono i seguenti: " + guessUserNumbers)
+}, 30000);
 
 //inserire nella DOM quali numeri sono uguali e quali no
 
