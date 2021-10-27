@@ -5,17 +5,23 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 //creare un array di numeri
 const numbersArray = []
+const userNumbersArray = []
 //creare una funzione che aggiunge cinque numeri casuali nell array
 
 numberPushAndRandom(numbersArray)
 console.log(numbersArray)
-//selezionare il bottnne nella DOM
-//al click i numeri vengono visualizzati con un alert
+//un alert mostra i numeri
+alert(numbersArray)
 //dopo 30 secondi
+timerFunction()
+
 //innerHTML vuoto per cancellare i numeri
 //5 prompt per inserire i numeri
 //condizioni per confrontare i numeri inseriti
 //inserire nella DOM quali numeri sono uguali e quali no
+
+
+
 
 
 //funzioni
@@ -24,5 +30,16 @@ function numberPushAndRandom(array) {
         let number = Math.floor(Math.random() * 100);
         array.push(number)
     }
-
+}
+function insertNumber(array) {
+    while (array.length < 5) {
+        let userNumber = prompt("inserisci qui il numero")
+        array.push(userNumber)
+    }
+}
+function timerFunction() {
+    setTimeout(function () {
+        insertNumber(userNumbersArray);
+        console.log(userNumbersArray)
+    }, 3000);
 }
