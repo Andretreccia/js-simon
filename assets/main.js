@@ -6,6 +6,7 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 //creare un array di numeri
 const numbersArray = []
 const userNumbersArray = []
+const guessUserNumbers = []
 //creare una funzione che aggiunge cinque numeri casuali nell array
 
 numberPushAndRandom(numbersArray)
@@ -16,15 +17,15 @@ alert(numbersArray)
 setTimeout(function () {
     insertNumber(userNumbersArray);
     console.log(userNumbersArray)
+
+
+    //condizioni per confrontare i numeri inseriti
+
+    compareArrayPush(numbersArray, userNumbersArray, guessUserNumbers)
+
 }, 3000);
 
-//condizioni per confrontare i numeri inseriti
-
-
 //inserire nella DOM quali numeri sono uguali e quali no
-
-
-
 
 
 //funzioni
@@ -33,7 +34,10 @@ setTimeout(function () {
 function numberPushAndRandom(array) {
     while (array.length < 5) {
         let number = Math.floor(Math.random() * 100);
-        array.push(number)
+        if (!array.includes(number)) {
+
+            array.push(number)
+        }
     }
 }
 
@@ -43,4 +47,14 @@ function insertNumber(array) {
         let userNumber = parseInt(prompt("inserisci qui il numero"))
         array.push(userNumber)
     }
+}
+
+//funzione per confrontare i numeri di due array e pushare gli inclusi in un terzo array
+function compareArrayPush(array1, array2, array3) {
+    for (i = 0; i <= 5; i++) {
+        if (array1.includes(array2[i])) {
+            array3.push(array2[i])
+        }
+    }
+    console.log(array3)
 }
