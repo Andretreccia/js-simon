@@ -13,11 +13,14 @@ console.log(numbersArray)
 //un alert mostra i numeri
 alert(numbersArray)
 //dopo 30 secondi
-timerFunction()
+setTimeout(function () {
+    insertNumber(userNumbersArray);
+    console.log(userNumbersArray)
+}, 3000);
 
-//innerHTML vuoto per cancellare i numeri
-//5 prompt per inserire i numeri
 //condizioni per confrontare i numeri inseriti
+
+
 //inserire nella DOM quali numeri sono uguali e quali no
 
 
@@ -25,21 +28,19 @@ timerFunction()
 
 
 //funzioni
+
+//funzione per inserire 5 numeri casuali in un array
 function numberPushAndRandom(array) {
     while (array.length < 5) {
         let number = Math.floor(Math.random() * 100);
         array.push(number)
     }
 }
+
+//funzione per inserire i numeri dell utente tramite prompt nell userArray
 function insertNumber(array) {
     while (array.length < 5) {
-        let userNumber = prompt("inserisci qui il numero")
+        let userNumber = parseInt(prompt("inserisci qui il numero"))
         array.push(userNumber)
     }
-}
-function timerFunction() {
-    setTimeout(function () {
-        insertNumber(userNumbersArray);
-        console.log(userNumbersArray)
-    }, 3000);
 }
